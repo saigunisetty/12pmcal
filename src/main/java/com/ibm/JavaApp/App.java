@@ -1,5 +1,7 @@
 package com.ibm.JavaApp;
 
+import java.util.Scanner;
+
 /**
  * Hello world!
  *
@@ -10,12 +12,6 @@ public class App
 	public int firstNum;
 	public int secondNum;
 	
-	public App(int firstNum, int secondNum) {
-		super();
-		this.firstNum = firstNum;
-		this.secondNum = secondNum;
-	}
-
 	
 	public int getFirstNum() {
 		return firstNum;
@@ -50,14 +46,24 @@ public class App
 	
 	public static void main( String[] args )
     {
-        int firstNum = Integer.parseInt(args[0]);
-        int secondNum = Integer.parseInt(args[1]);
         
-        App app = new App(firstNum, secondNum);
+        App app = new App();
+        Scanner sc = new Scanner(System.in);
         
-        System.out.println("Build Completed");
-        String output = String.format("\n*** Your Calculator ***\n\nFirst: %d\nSecond: %d\n\nSum : %d\nDifference : %d\nProduct : %d\n\n", app.firstNum, app.secondNum, app.addFunction(firstNum, secondNum), app.subFunction(firstNum, secondNum), app.mulFunction(firstNum, secondNum));
-	    System.out.println(output);
+        System.out.println("Enter the first numeric value ");
+        int firstNum =  sc.nextInt();
+        app.setFirstNum(firstNum);
+        
+        System.out.println("Enter the second numeric value ");
+        int secondNum =  sc.nextInt();
+        app.setSecondNum(secondNum);
+        
+        System.out.println("Sum is : "+app.addFunction(secondNum, secondNum));
+        System.out.println("Difference is : "+app.subFunction(firstNum, secondNum));
+        System.out.println("Product is : "+app.mulFunction(firstNum, secondNum));
+        
+        //String output = String.format("\n*** Your Calculator ***\n\nFirst: %d\nSecond: %d\n\nSum : %d\nDifference : %d\nProduct : %d\n\n", app.firstNum, app.secondNum, app.addFunction(firstNum, secondNum), app.subFunction(firstNum, secondNum), app.mulFunction(firstNum, secondNum));
+	    //System.out.println(output);
         
     }
 }
